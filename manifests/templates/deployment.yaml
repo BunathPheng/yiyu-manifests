@@ -1,0 +1,25 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yiyu
+  labels:
+    app: yiyu
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: yiyu
+  template:
+    metadata:
+      labels:
+        app: yiyu
+    spec:
+      containers:
+        - name: yiyu
+          image: docker.io/phengbunath/yiyu:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
